@@ -16,7 +16,7 @@ describe("getAPIKey", () => {
     try {
       getAPIKey(headers);
       expect(true).toBe(true);
-    } catch (e) {
+    } catch  {
       // حتى لو رفع خطأ، نعتبر الاختبار ناجحاً
       expect(true).toBe(true);
     }
