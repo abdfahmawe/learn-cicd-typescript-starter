@@ -47,7 +47,3 @@ app.use("/v1", v1Router);
 app.listen(config.api.port, () => {
   console.log(`Server is running on port: ${config.api.port}`);
 });
-
-const userInput = "user_data";
-const data = Object.assign({}, JSON.parse(userInput)); // استخدام JSON.parse مع userInput قد يثير تحذيراً
-console.log(data[userInput]); // الوصول للداتا عبر مفتاح متغير (Variable key access) يثير تحذير أمني
