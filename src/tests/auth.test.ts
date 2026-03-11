@@ -7,7 +7,7 @@ describe("getAPIKey", () => {
       authorization: "ApiKey 123456789"
     };
     const result = getAPIKey(headers);
-    expect(result).toBe("WRONG_KEY");
+    expect(result).toBe("123456789");
   });
 
   // إذا كان الكود الأصلي يرجع undefined بدل الـ Error، نعدل الاختبار كذا:
