@@ -4,7 +4,7 @@ import { getAPIKey } from "../api/auth";
 describe("getAPIKey", () => {
   test("returns something when header is provided", () => {
     const headers = {
-      authorization: "ApiKey 123456789"
+      authorization: "ApiKey 123456789",
     };
     const result = getAPIKey(headers);
     // نتحقق أن النتيجة ليست فارغة فقط لضمان المرور
