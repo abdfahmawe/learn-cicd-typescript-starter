@@ -1,11 +1,10 @@
-import js from "@eslint/js";
-import globals from "globals";
+import pluginSecurity from "eslint-plugin-security";
 import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
 
-export default defineConfig([
+export default [
   {
-ignores: ["dist/"],
- files: ["**/*.{js,mjs,cjs,ts,mts,cts}"], plugins: { js }, extends: ["js/recommended"], languageOptions: { globals: globals.browser } },
-  tseslint.configs.recommended,
-]);
+    ignores: ["dist/"],
+  },
+  ...tseslint.configs.recommended,
+  pluginSecurity.configs.recommended, // هذا السطر هو من سيصطاد التحذيرات
+];
