@@ -1,11 +1,22 @@
-FROM --platform=linux/amd64 node:22-slim
+FROM node:22-slim
 
 WORKDIR /usr/src/app
 
-ADD . .
+# نسخ ملفات التعريف
+COPY package*.json ./
 
-RUN npm ci
+# تثبيت كل شيء (بما فيها Typescript والـ Types)
+RUN npm install
 
-RUN npm run build
+# نسخ الكود المصدري
+COPY . .
 
+# تحويل TypeScript إلى JavaScript
+RUN npx tsc
+
+# إعداد المتغيرات والمنفذ
+ENV PORT=8080
+EXPOSE 8080
+
+# تشغيل الملف الناتج في مجلد dist
 CMD ["node", "dist/main.js"]
